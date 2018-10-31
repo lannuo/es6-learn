@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise实例</title>
+</head>
+<body>
+<script>
+    let getNews=(url)=>{
+        let promise=new Promise((resolve,reject)=>{
+            let xmlhttp=new XMLHttpRequest();
+            //绑定监听  readystate
+            xmlhttp.onreadystatechange=()=>{
+                if(xmlhttp.readyState===4) {
+                    if (xmlhttp.status == 200) {
+                        console.log(xmlhttp.responseText)
+                        resolve(xmlhttp.responseText);
+                    } else {
+                        reject('没有新闻内容');
+                    }
+                }
+            }
+            //设置请求的方式和url
+            xmlhttp.open('GET',url)
+            //发送
+            xmlhttp.send()
+        })
+        return promise
+    }
+    getNews('http://localhost:3000/news?id=2').then((data)=>{
+        console.log('成功',data)
+        let url='http://localhost:3000'+JSON.parse(data).commentsUrl;
+        return getNews(url)
+    },(error)=>{
+        console.log('失败',error)
+    }).then((data)=>{
+        console.log('成功',data)
+    },(error)=>{
+        console.log('失败',error)
+    })
+</script>
+</body>
+</html>

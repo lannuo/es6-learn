@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<script>
+    let btns = document.getElementsByTagName('button');
+    // for (var i = 0; i < btns.length; i++) {
+    //     var btn=btns[i];
+    //     //onclick事件是回调，这时i已经是3了
+    //     btns[i].onclick=function () {
+    //         alert(i);
+    //     }
+    // }
+    //改版 闭包的方式
+    // for (var i = 0; i < btns.length; i++) {
+    //     var btn = btns[i];
+    //     (function (i) {
+    //         btns[i].onclick = function () {
+    //             alert(i);
+    //         }
+    //     })(i)
+    //
+    // }
+    for (let i = 0; i < btns.length; i++) {
+        let btn = btns[i];
+        btns[i].onclick = function () {
+            alert(i);
+        }
+
+    }
+    const a=123
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+<script>
+
+    let promise=new Promise((resolve,reject)=>{
+        console.log(111);
+        setTimeout(()=>{
+            console.log(333)
+            resolve('haha')
+            reject('5555')
+        },2000)
+    })
+    console.log(222)
+    promise.then((data)=>{
+        console.log(data+'成功')
+    },(error)=>{
+        console.log(error+'失败')
+    })
+</script>
+</body>
+</html>

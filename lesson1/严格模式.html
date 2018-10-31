@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>严格模式</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    'use strict';
+    let username='kobe';
+    console.log(username);
+    function Person(name,age) {
+        this.name=name;
+        this.age=age;
+    }
+
+    new Person('kobe',11)
+
+    let str='NBA'
+    eval('alert(str)')
+    let str2='ABA'
+    eval('var str2="CBA";alert(str2)')
+    alert(str2)
+
+    let obj={
+        username:'1'
+    }
+
+
+</script>
+
+</body>
+</html>

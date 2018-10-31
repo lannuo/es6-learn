@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object扩展</title>
+</head>
+<body>
+<script>
+    'use strict'
+    let person={name:'lisi',value:123}
+    let obj=Object.create(person,{ //以指定对象为原型创建新的对象
+        age:{
+            value:12,
+            writable:true,//对象属性是否能够修改
+            configurable:true,//对象属性是否能够删除
+            enumerable:true//对象属性是否能枚举出来
+        }
+    })
+    obj.age=13
+    // delete obj.age
+    console.log(obj)
+    for(let i in obj){
+        console.log(i)
+    }
+
+
+    //Object.defineProperties(object,descriptors)为指定对象扩展属性
+
+    let obj2={firstname:'kobe',lastname:'brand'}
+    Object.defineProperties(obj2,{
+        fullname:{
+            get:function () {//获取扩展属性的值，当获取扩展属性的时候自动调用
+                return this.firstname+this.lastname
+            },
+            set:function (data) {// 监听扩展属性，当扩展属性发生变化的时候自动调用,将变化后的值作为实参注入函数
+                console.log('set',data)
+                let names=data.split(' ');
+                this.firstname=names[0];
+                this.lastname=names[1];
+            }
+        }
+    })
+    console.log(obj2)
+    obj2.fullname='tim sss'
+    console.log(obj2)
+
+    let obj3={
+        firstname:'li',
+        lastname:'si',
+        get fullname(){
+            return this.firstname + ' '+this.lastname
+        },
+        set fullname(data){
+            console.log('set',data)
+            let names=data.split(' ');
+            this.firstname=names[0];
+            this.lastname=names[1];
+        }
+    }
+    console.log(obj3)
+</script>
+</body>
+</html>

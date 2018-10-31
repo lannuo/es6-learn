@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function扩展</title>
+</head>
+<body>
+
+<script>
+    'use strict'
+    /*Function.prototype.bind(obj)
+    * 作用：将函数内的this绑定为obj,并将函数返回
+    *
+    * 区别bing()与call()和apply()?
+    * 都能指定函数中的this
+    * call()/apply()是立即调用函数
+    * bind()是将函数返回
+    * */
+    let obj={username:'kobe'}
+    function foo(data) {
+        console.log(this,data)
+    }
+
+    //传入参数的形式不一样 apply 和call
+    foo.call(obj,33)//直接从第二个参数开始，依次传入
+    foo.apply(obj,[33])//第二个参数必须是数组，传入放在数组里
+    //bind 的特点，绑定完this不会立即调用当前的函数，而是将函数返回
+    //传参的方式和call一样
+    //一般用在回调函数this的绑定
+    foo.bind(obj,33)();
+    setTimeout(function () {
+        console.log(this)
+    }.bind(obj),1000)
+
+</script>
+</body>
+</html>

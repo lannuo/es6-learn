@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构</title>
+</head>
+<body>
+<script>
+    let obj={username:'kobe',age:39}
+    let {username,age}=obj;
+    console.log(username,age)
+
+    let arry=[1,2,36,3]
+    let [,,a,b]=arry
+    console.log(a,b)
+
+    function foo({username,age}) {
+        console.log(username,age)
+    }
+    foo(obj)
+</script>
+</body>
+</html>

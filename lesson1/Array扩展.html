@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array扩展</title>
+</head>
+<body>
+<script>
+    let arry=[2,4,3,1,2,6,5,4];
+    console.log(arry.indexOf(4));
+    console.log(arry.lastIndexOf(4));
+    arry.forEach(function (item,index) {
+        console.log(item,index)
+    })
+    let arry2=arry.map(function (item,index) {
+        return item+10;
+    })
+    console.log(arry2)
+
+    let arry3=arry2.filter(function (item,index) {
+        return item>13
+    })
+    console.log(arry3)
+</script>
+</body>
+</html>

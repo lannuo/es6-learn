@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+    //原始
+    let fun=function(){
+
+    }
+    //箭头函数 当没有形参时不能省略（）
+    let fun=()=>console.log('我是箭头函数')
+    //单只有一个形参时可以省略（）
+    let fun=x=>console.log(x)
+    //当有2个以上形参时（）不能省略
+    //当函数体只有一条语句或者是表达式的时候{}可以省略，会自动返回语句的执行结果或表达式的结果
+    //不止一条语句时，必须得加{}
+    let fun=(x,y)=>console.log(x+y)
+</script>
+</body>
+</html>

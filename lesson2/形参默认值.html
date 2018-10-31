@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>形参默认值</title>
+</head>
+<body>
+<script>
+    let Point=(x=0,y=0)=>{
+        this.x=x
+        this.y=y
+    }
+    let point=new Point(1,2)
+    console.log(point)
+</script>
+</body>
+</html>
